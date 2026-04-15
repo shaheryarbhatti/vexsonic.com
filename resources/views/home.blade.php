@@ -9,7 +9,7 @@
         <div class="bg-glow glow-right"></div>
 
         <header class="topbar">
-    <div class="container topbar-inner" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding: 15px 0;">
+    <div class="container topbar-inner" style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
 
         <a href="{{ route('home') }}" class="logo-mark" style="flex-shrink: 0;">
             <img src="{{ asset('images/logo.png') }}" alt="Vexsonic Logo" style="height: 40px; width: auto; display: block; object-fit: contain;">
