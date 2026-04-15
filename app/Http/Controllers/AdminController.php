@@ -13,6 +13,7 @@ class AdminController extends Controller
         return view('admin.login');
     }
 
+
     public function login(Request $request)
     {
         $credentials = $request->validate([
