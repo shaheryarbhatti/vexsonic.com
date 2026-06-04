@@ -5,8 +5,7 @@ use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::post('/book-demo', [HomeController::class, 'store'])->name('book-demo');
-Route::get('/api/available-slots', [HomeController::class, 'getSlots'])->name('api.slots');
+Route::post('/contact', [HomeController::class, 'contact'])->name('contact.store');
 
 Route::get('/admin/login', [AdminController::class, 'showLogin'])->name('login');
 Route::post('/admin/login', [AdminController::class, 'login']);
