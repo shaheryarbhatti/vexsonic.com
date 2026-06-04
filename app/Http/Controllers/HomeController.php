@@ -28,7 +28,6 @@ class HomeController extends Controller
                 'message' => 'Your message has been sent! We\'ll get back to you within 24 hours.',
             ]);
         }
-
         // ── Bot Protection 2: Rate Limiting ──
         // Max 3 submissions per IP per 10 minutes
         $key = 'contact-form:' . $request->ip();
