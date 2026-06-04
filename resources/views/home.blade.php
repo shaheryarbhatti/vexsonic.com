@@ -655,7 +655,7 @@
             <div class="ci-icon-wrap teal-bg">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </div>
-            <div><strong>Email Us</strong><span>shaheryarbhatti881@gmail.com</span></div>
+            <div><strong>Email Us</strong><span>support@vexsonic.com</span></div>
           </div>
           <div class="ci-item reveal">
             <div class="ci-icon-wrap orange-bg">
@@ -790,7 +790,7 @@
         <div class="fcs-icon">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         </div>
-        <span>shaheryarbhatti881@gmail.com</span>
+        <span>support@vexsonic.com</span>
       </div>
       <div class="fcs-item">
         <div class="fcs-icon">
