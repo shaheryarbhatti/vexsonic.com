@@ -1,0 +1,56 @@
+# ================================================================
+#  VexSonic — SERVER root/.htaccess
+#  Safe for Shared Hosting (Hostinger, cPanel, Namecheap etc.)
+#
+#  WHAT THIS DOES:
+#  - Blocks direct access to sensitive Laravel files (.env etc.)
+#  - Hides directory listings
+#  - Does NOT block all access (that caused the 403 error)
+# ================================================================
+
+# ── Disable Directory Listing ─────────────────────────────────
+Options -Indexes
+
+# ── Block .env and other sensitive files ──────────────────────
+<FilesMatch "(\.env|\.env\..*)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "(composer\.json|composer\.lock|package\.json|package-lock\.json|artisan|phpunit\.xml|\.gitignore|\.gitattributes|webpack\.mix\.js|vite\.config\.js|server\.php|README\.md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ── Block all hidden/dot files except .htaccess itself ────────
+<FilesMatch "^\.(?!htaccess)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ── Redirect all traffic to /public (if not already there) ────
+# Uncomment these lines ONLY if your domain root points to Laravel root
+# and NOT to the /public folder directly.
+#
+# <IfModule mod_rewrite.c>
+#     RewriteEngine On
+#     RewriteRule ^(.*)$ public/$1 [L]
+# </IfModule>
+
+# ── Disable Server Signature ──────────────────────────────────
+ServerSignature Off

@@ -673,9 +673,6 @@
             <div><strong>Response Time</strong><span>Within 24 Hours</span></div>
           </div>
         </div>
-        <div class="contact-visual reveal">
-          <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&q=80" alt="Contact us" />
-        </div>
       </div>
 
       <div class="contact-right reveal">

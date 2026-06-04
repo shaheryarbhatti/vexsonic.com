@@ -1,0 +1,130 @@
+# ================================================================
+#  VexSonic — SERVER public/.htaccess
+#
+#  INSTRUCTIONS:
+#  Upload this file to your server's /public/.htaccess
+#  Replace YOUR-DOMAIN.COM with your actual domain (e.g. vexsonic.com)
+# ================================================================
+
+# ── Disable Directory Listing ──────────────────────────────────
+Options -Indexes -MultiViews
+
+# ── Rewrite Engine ─────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Force HTTPS — uncomment when SSL is active on your server
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+    # Redirect Trailing Slashes If Not A Folder
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send Requests To Front Controller
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# ── Block Sensitive Files ──────────────────────────────────────
+<FilesMatch "(\.env|\.env\.*|composer\.json|composer\.lock|package\.json|package-lock\.json|artisan|phpunit\.xml|\.gitignore|\.gitattributes|webpack\.mix\.js|vite\.config\.js|README\.md)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# Block all dot/hidden files except .htaccess itself
+<FilesMatch "^\.(?!htaccess)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# ── Security Headers ──────────────────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+
+    # Force HTTPS for 1 year — uncomment when SSL is active
+    # Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+
+    # Content Security Policy — update YOUR-DOMAIN.COM
+    Header always set Content-Security-Policy "default-src 'self' https://vexsonic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self';"
+
+    # Hide server info from attackers
+    Header unset Server
+    Header unset X-Powered-By
+    Header always unset X-Powered-By
+</IfModule>
+
+# ── Block Common Attack Patterns ──────────────────────────────
+<IfModule mod_rewrite.c>
+    # Block SQL Injection
+    RewriteCond %{QUERY_STRING} (union.*select|select.*from|insert.*into|drop.*table|delete.*from|update.*set) [NC]
+    RewriteRule .* - [F,L]
+
+    # Block XSS
+    RewriteCond %{QUERY_STRING} (<script|javascript:|vbscript:|onload=|onerror=) [NC]
+    RewriteRule .* - [F,L]
+
+    # Block path traversal
+    RewriteCond %{QUERY_STRING} (\.\./|\.\.\\) [NC]
+    RewriteRule .* - [F,L]
+
+    # Block null bytes
+    RewriteCond %{QUERY_STRING} \0 [NC]
+    RewriteRule .* - [F,L]
+
+    # Block Remote File Inclusion
+    RewriteCond %{QUERY_STRING} ^.*(http|ftp):\/\/ [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ── Block Known Malicious Bots & Scanners ─────────────────────
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} (sqlmap|nikto|nessus|masscan|nmap|dirbuster|burpsuite|havij|acunetix|w3af) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# ── Prevent Image Hotlinking ──────────────────────────────────
+# Replace vexsonic.com with your actual domain
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_REFERER} !^$
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?vexsonic\.com [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://localhost [NC]
+    RewriteRule \.(jpg|jpeg|png|gif|svg|webp|ico)$ - [F,L]
+</IfModule>
+
+# ── PHP Settings ──────────────────────────────────────────────
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 60
+    php_value max_input_time 60
+    php_flag display_errors Off
+    php_flag log_errors On
+</IfModule>
+
+# ── Disable Server Signature ──────────────────────────────────
+ServerSignature Off
