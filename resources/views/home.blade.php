@@ -684,6 +684,8 @@
           <p>Free consultation. No commitments.</p>
           <form class="contact-form" id="contactForm" action="{{ route('contact.store') }}" method="POST">
             @csrf
+            {{-- Honeypot: bots fill this, humans don't --}}
+            <input type="text" name="website" value="" style="display:none !important;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" />
             <div class="form-row">
               <div class="form-group">
                 <label>Your Name</label>
@@ -712,12 +714,8 @@
               <span>Send Message</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
             </button>
-            @if(session('contact_success'))
-              <div class="form-success show">&#9989; {{ session('contact_success') }}</div>
-            @endif
-            @if($errors->any())
-              <div class="form-success show" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:#f87171;">&#9888; {{ $errors->first() }}</div>
-            @endif
+            <div class="form-success" id="formSuccess"></div>
+            <div class="form-error"   id="formError"></div>
           </form>
         </div>
       </div>

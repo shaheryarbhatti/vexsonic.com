@@ -228,14 +228,60 @@ document.querySelectorAll('.testi-card, .process-card, .work-card, .stat-item').
   });
 });
 
-// ── CONTACT FORM loading state ──
+// ── CONTACT FORM — AJAX submit ──
 const form = document.getElementById('contactForm');
 if (form) {
-  form.addEventListener('submit', function() {
-    const btn = this.querySelector('button[type="submit"]');
-    if (btn) {
-      btn.disabled = true;
-      btn.innerHTML = '<span>Sending...</span>';
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const btn      = this.querySelector('button[type="submit"]');
+    const success  = document.getElementById('formSuccess');
+    const error    = document.getElementById('formError');
+
+    // Loading state
+    btn.disabled = true;
+    btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="animation:spin 0.8s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg><span>Sending...</span>';
+
+    if (success) { success.classList.remove('show'); }
+    if (error)   { error.classList.remove('show'); }
+
+    try {
+      const res  = await fetch(this.action, {
+        method:  'POST',
+        headers: {
+          'X-CSRF-TOKEN': this.querySelector('input[name="_token"]').value,
+          'Accept':       'application/json',
+          'X-Requested-With': 'XMLHttpRequest',
+        },
+        body: new FormData(this),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // Show success
+        if (success) {
+          success.textContent = '✅ ' + data.message;
+          success.classList.add('show');
+        }
+        form.reset();
+        // Auto-hide after 6 seconds
+        setTimeout(() => success && success.classList.remove('show'), 6000);
+      } else {
+        if (error) {
+          error.textContent = '⚠️ ' + data.message;
+          error.classList.add('show');
+        }
+      }
+
+    } catch (err) {
+      if (error) {
+        error.textContent = '⚠️ Something went wrong. Please try again.';
+        error.classList.add('show');
+      }
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '<span>Send Message</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>';
     }
   });
 }
