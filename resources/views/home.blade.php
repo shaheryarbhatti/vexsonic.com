@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>VexSonic – Innovative Software Solutions</title>
-  <meta name="description" content="VexSonic delivers world-class Website Development, Mobile Apps, and SAP ABAP solutions." />
+  <meta name="description" content="VexSonic builds websites, mobile apps, and SAP ABAP systems for businesses worldwide." />
   <link rel="icon" type="image/png" href="{{ asset('images/vexsonicfavicon.png') }}" />
   <link rel="shortcut icon" type="image/png" href="{{ asset('images/vexsonicfavicon.png') }}" />
   <link rel="apple-touch-icon" href="{{ asset('images/vexsonicfavicon.png') }}" />
@@ -67,9 +67,9 @@
       </h1>
 
       <p class="hero-subtitle reveal">
-        Transforming ideas into powerful digital products. We craft
-        world-class <strong>websites</strong>, <strong>mobile apps</strong>,
-        and <strong>enterprise solutions</strong> that accelerate your business growth.
+        We turn your ideas into real digital products. From <strong>websites</strong>
+        to <strong>mobile apps</strong> and <strong>SAP systems</strong> — we build
+        things that work and help your business grow.
       </p>
 
       <!-- Service pills -->
@@ -269,7 +269,7 @@
       <div class="service-info">
         <div class="service-num-tag teal">01</div>
         <h3>Website Development</h3>
-        <p>We build fast, beautiful, and conversion-focused websites tailored to your brand. From stunning landing pages to full-scale web applications — every pixel is crafted with purpose.</p>
+        <p>We build fast, good-looking websites that fit your business. Whether it's a simple landing page or a full web app — we make sure it looks great and works even better.</p>
         <div class="service-tags">
           <span>React.js</span><span>Next.js</span><span>Vue.js</span><span>Laravel</span><span>Node.js</span>
         </div>
@@ -295,7 +295,7 @@
       <div class="service-info">
         <div class="service-num-tag orange">02</div>
         <h3>Mobile App Development</h3>
-        <p>Native and cross-platform mobile applications that users love. We deliver smooth, high-performance apps for both iOS and Android with exceptional UX and rich feature sets.</p>
+        <p>We build mobile apps for iOS and Android that are easy to use and work smoothly. From simple apps to feature-rich platforms — we handle everything from design to launch.</p>
         <div class="service-tags">
           <span>Flutter</span><span>React Native</span><span>iOS</span><span>Android</span><span>Firebase</span>
         </div>
@@ -321,7 +321,7 @@
       <div class="service-info">
         <div class="service-num-tag green">03</div>
         <h3>SAP ABAP Development</h3>
-        <p>Expert-level SAP ABAP development and ERP customization to streamline enterprise operations. We automate business processes, build integrations, and enhance your SAP landscape.</p>
+        <p>We work on SAP ABAP development and help businesses get more out of their SAP systems. Whether it's custom reports, system connections, or fixing slow processes — we get it done.</p>
         <div class="service-tags">
           <span>SAP ABAP</span><span>S/4HANA</span><span>Fiori</span><span>BAPI</span><span>RFC</span>
         </div>
@@ -381,7 +381,7 @@
       <div class="why-left">
         <span class="section-tag reveal">Why Choose Us</span>
         <h2 class="section-title reveal">Built on Trust,<br /><span class="gradient-text">Delivered with Excellence</span></h2>
-        <p class="why-desc reveal">We don't just write code — we become your technology partner, understanding your vision and delivering solutions that create lasting impact.</p>
+        <p class="why-desc reveal">We don't just write code and disappear. We work with you closely, understand what you need, and build something that actually helps your business.</p>
         <div class="why-features">
           <div class="wf-item reveal">
             <div class="wf-icon-wrap teal-bg">
@@ -389,7 +389,7 @@
             </div>
             <div>
               <h4>Fast Delivery</h4>
-              <p>Agile sprints and lean processes get your product to market faster.</p>
+              <p>We work in small steps and keep moving so your project gets done on time.</p>
             </div>
           </div>
           <div class="wf-item reveal">
@@ -398,7 +398,7 @@
             </div>
             <div>
               <h4>Secure &amp; Scalable</h4>
-              <p>Security-first architecture built to scale with your growing business.</p>
+              <p>We build things the right way — secure, clean, and ready to handle more as your business grows.</p>
             </div>
           </div>
           <div class="wf-item reveal">
@@ -472,7 +472,7 @@
       </div>
       <div class="testi-card featured-testi reveal-card">
         <div class="testi-quote">&#8220;</div>
-        <p>The SAP ABAP customization they delivered saved our team 200+ hours per month. Absolute enterprise-grade expertise. We now consider them our permanent IT partner.</p>
+        <p>The SAP work they did saved our team over 200 hours every month. They really know what they're doing and we still work with them today.</p>
         <div class="testi-author">
           <div class="testi-avatar av-orange">SR</div>
           <div><strong>Sara Rauf</strong><span>IT Manager, LogiCorp</span></div>
@@ -509,7 +509,7 @@
         </div>
         <div class="ps-number-big">01</div>
         <h4>Discovery &amp; Planning</h4>
-        <p>Deep-dive into your goals, audience, and requirements to build a rock-solid project blueprint.</p>
+        <p>We sit down and understand exactly what you need before anything starts. No guessing.</p>
       </div>
       <div class="process-card reveal-card">
         <div class="process-img">
@@ -517,7 +517,7 @@
         </div>
         <div class="ps-number-big">02</div>
         <h4>Design &amp; Prototype</h4>
-        <p>Interactive prototypes and pixel-perfect mockups approved by you before any development starts.</p>
+        <p>We show you exactly how it will look and work before we write a single line of code. You approve it, then we build it.</p>
       </div>
       <div class="process-card reveal-card">
         <div class="process-img">
@@ -525,7 +525,7 @@
         </div>
         <div class="ps-number-big">03</div>
         <h4>Development &amp; Testing</h4>
-        <p>Clean, well-documented code with rigorous QA testing and regular progress demos.</p>
+        <p>We write clean code, test everything properly, and keep you updated as we go.</p>
       </div>
       <div class="process-card reveal-card">
         <div class="process-img">
@@ -533,7 +533,7 @@
         </div>
         <div class="ps-number-big">04</div>
         <h4>Launch &amp; Support</h4>
-        <p>Smooth deployment with post-launch monitoring, training, and ongoing maintenance.</p>
+        <p>We go live with you, make sure everything runs fine, and stay available if anything needs fixing.</p>
       </div>
     </div>
   </div>
@@ -547,7 +547,7 @@
     <div class="section-header">
       <span class="section-tag reveal">Technologies</span>
       <h2 class="section-title reveal">Powered by <span class="gradient-text">Modern Tech</span></h2>
-      <p class="section-subtitle reveal">We use industry-leading tools to build fast, scalable, and reliable solutions.</p>
+      <p class="section-subtitle reveal">We use the right tools for the job — modern, well-tested, and trusted by developers worldwide.</p>
     </div>
     <div class="tech-grid">
       <div class="tech-card reveal">
@@ -737,7 +737,7 @@
           <span class="logo-text"><span class="logo-vex">vex</span><span class="logo-sonic">sonic</span></span>
         </a>
         <p class="footer-tagline">INNOVATIVE SOFTWARE SOLUTIONS</p>
-        <p class="footer-desc">We design, develop, and deliver world-class digital solutions — from stunning websites to enterprise SAP systems.</p>
+        <p class="footer-desc">We build websites, mobile apps, and SAP systems that actually work for your business. Simple as that.</p>
         <!-- Social -->
         <div class="footer-social">
           <a href="#" class="fs-btn" title="LinkedIn">
