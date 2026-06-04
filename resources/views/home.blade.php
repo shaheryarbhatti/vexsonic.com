@@ -109,7 +109,7 @@
         </div>
         <div class="stat-divider"></div>
         <div class="stat">
-          <div class="stat-num-wrap"><span class="stat-num" data-target="5">0</span><span>+</span></div>
+          <div class="stat-num-wrap"><span class="stat-num" data-target="11">0</span><span>+</span></div>
           <p>Years Experience</p>
         </div>
         <div class="stat-divider"></div>
@@ -360,7 +360,7 @@
       </div>
       <div class="stat-item reveal">
         <div class="stat-icon">&#128197;</div>
-        <div class="stat-num-big" data-target="5">0</div>
+        <div class="stat-num-big" data-target="11">0</div>
         <div class="stat-plus">+</div>
         <p>Years Experience</p>
       </div>

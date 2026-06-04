@@ -1,25 +1,38 @@
 // ══════════════════════════════════════
-// THEME SWITCHER — random on every load
+// THEME AUTO-ROTATOR — changes every 10s
 // ══════════════════════════════════════
 const themes = [
-  { cls: 'theme-teal-orange',    name: 'Teal & Orange',    dot1: '#1a7a9a', dot2: '#f0921c' },
-  { cls: 'theme-purple-cyan',    name: 'Purple & Cyan',    dot1: '#8b5cf6', dot2: '#06b6d4' },
-  { cls: 'theme-rose-amber',     name: 'Rose & Amber',     dot1: '#f43f5e', dot2: '#f59e0b' },
-  { cls: 'theme-emerald-violet', name: 'Emerald & Violet', dot1: '#10b981', dot2: '#a78bfa' },
-  { cls: 'theme-indigo-gold',    name: 'Indigo & Gold',    dot1: '#4f46e5', dot2: '#f59e0b' },
-  { cls: 'theme-sky-pink',       name: 'Sky & Pink',       dot1: '#0ea5e9', dot2: '#ec4899' },
+  'theme-rose-amber',
+  'theme-teal-orange',
+  'theme-purple-cyan',
+  'theme-emerald-violet',
+  'theme-indigo-gold',
+  'theme-sky-pink',
+  'theme-midnight-blue',
+  'theme-carbon-neon',
+  'theme-navy-coral',
+  'theme-slate-gold',
 ];
 
-// Pick a random theme (different from last visit if possible)
-const lastTheme = sessionStorage.getItem('vs-theme');
-let available = themes.filter(t => t.cls !== lastTheme);
-if (!available.length) available = themes;
-const chosen = available[Math.floor(Math.random() * available.length)];
-sessionStorage.setItem('vs-theme', chosen.cls);
+let currentThemeIndex = 0;
 
-// Apply theme class to body immediately (before render)
-document.documentElement.classList.add(chosen.cls);
-document.body.classList.add(chosen.cls);
+function applyTheme(cls) {
+  themes.forEach(t => {
+    document.body.classList.remove(t);
+    document.documentElement.classList.remove(t);
+  });
+  document.body.classList.add(cls);
+  document.documentElement.classList.add(cls);
+}
+
+// Start with rose-amber on load
+applyTheme(themes[currentThemeIndex]);
+
+// Auto-rotate every 10 seconds
+setInterval(() => {
+  currentThemeIndex = (currentThemeIndex + 1) % themes.length;
+  applyTheme(themes[currentThemeIndex]);
+}, 3000);
 
 
 // ── CODE CARD TYPING ANIMATION ──

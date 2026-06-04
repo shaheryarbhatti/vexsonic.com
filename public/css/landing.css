@@ -111,6 +111,54 @@ body.theme-sky-pink {
   --primary-rgb:2,132,199; --accent-rgb:219,39,119;
 }
 
+/* Theme 7 — Midnight Blue & Electric Sky */
+body.theme-midnight-blue {
+  --primary:    #1e40af; --primary-lt:  #3b82f6;
+  --accent:     #38bdf8; --accent-lt:   #7dd3fc;
+  --teal:       #1e40af; --teal-lt:     #3b82f6;
+  --orange:     #38bdf8; --orange-lt:   #7dd3fc;
+  --dark:       #060810; --dark2:       #080f1e; --dark3: #0c152b;
+  --card:       #0a1228; --card2:       #0e1830;
+  --logo-left:  #3b82f6; --logo-right:  #38bdf8;
+  --primary-rgb:30,64,175; --accent-rgb:56,189,248;
+}
+
+/* Theme 8 — Carbon & Neon Green */
+body.theme-carbon-neon {
+  --primary:    #16a34a; --primary-lt:  #22c55e;
+  --accent:     #84cc16; --accent-lt:   #a3e635;
+  --teal:       #16a34a; --teal-lt:     #22c55e;
+  --orange:     #84cc16; --orange-lt:   #a3e635;
+  --dark:       #080c08; --dark2:       #0d130d; --dark3: #121a12;
+  --card:       #0f1a0f; --card2:       #142014;
+  --logo-left:  #22c55e; --logo-right:  #a3e635;
+  --primary-rgb:22,163,74; --accent-rgb:132,204,22;
+}
+
+/* Theme 9 — Navy & Coral */
+body.theme-navy-coral {
+  --primary:    #1a4a7a; --primary-lt:  #2563a8;
+  --accent:     #ff6b6b; --accent-lt:   #ff8e8e;
+  --teal:       #1a4a7a; --teal-lt:     #2563a8;
+  --orange:     #ff6b6b; --orange-lt:   #ff8e8e;
+  --dark:       #06090f; --dark2:       #08101e; --dark3: #0c162b;
+  --card:       #0b1526; --card2:       #0f1c30;
+  --logo-left:  #4a90d9; --logo-right:  #ff6b6b;
+  --primary-rgb:26,74,122; --accent-rgb:255,107,107;
+}
+
+/* Theme 10 — Slate & Gold */
+body.theme-slate-gold {
+  --primary:    #334155; --primary-lt:  #64748b;
+  --accent:     #ca8a04; --accent-lt:   #eab308;
+  --teal:       #334155; --teal-lt:     #64748b;
+  --orange:     #ca8a04; --orange-lt:   #eab308;
+  --dark:       #07080a; --dark2:       #0d1117; --dark3: #131920;
+  --card:       #111820; --card2:       #172030;
+  --logo-left:  #94a3b8; --logo-right:  #eab308;
+  --primary-rgb:51,65,85; --accent-rgb:202,138,4;
+}
+
 html { scroll-behavior: smooth; }
 body {
   font-family: 'Inter', sans-serif;
@@ -118,6 +166,49 @@ body {
   color: var(--text);
   line-height: 1.65;
   overflow-x: hidden;
+  transition: background 1.2s ease, color 1.2s ease;
+}
+/* ── Smooth theme color transitions on every element ── */
+*, *::before, *::after {
+  transition:
+    background-color 0.8s ease,
+    border-color 0.8s ease,
+    color 0.6s ease,
+    box-shadow 0.8s ease,
+    fill 0.6s ease,
+    stroke 0.6s ease;
+}
+/* Exclude elements with their own keyframe animations or transforms */
+canvas, img { transition: none !important; }
+/* Preserve animation-driven elements but still fade colors */
+.orb, .hv-glow, .marquee-track, .tech-col-inner,
+.fc-progress-fill, .badge-dot, .live-dot, .hv-live-dot,
+.hv-status-dot, .scroll-wheel {
+  transition:
+    background-color 0.8s ease,
+    border-color 0.8s ease,
+    color 0.6s ease !important;
+}
+/* Buttons: color fade + keep hover transforms */
+.btn {
+  transition:
+    background-color 0.8s ease,
+    background 0.8s ease,
+    border-color 0.8s ease,
+    color 0.6s ease,
+    box-shadow 0.8s ease,
+    transform 0.3s ease !important;
+}
+/* Cards: smooth background + border + shadow */
+.tech-card, .testi-card, .process-card, .service-card,
+.stat-item, .wf-item, .ci-item, .hv-badge,
+.hv-stats-card, .hv-code-card, .contact-form-wrap,
+.floating-card, .footer-contact-strip {
+  transition:
+    background-color 0.8s ease,
+    border-color 0.8s ease,
+    box-shadow 0.8s ease,
+    transform 0.4s ease !important;
 }
 img { display: block; max-width: 100%; }
 ::-webkit-scrollbar { width: 5px; }
