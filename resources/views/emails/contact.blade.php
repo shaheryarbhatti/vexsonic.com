@@ -92,6 +92,29 @@
                 </tr>
               </table>
 
+              <!-- Phone -->
+              <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
+                <tr>
+                  <td style="background:#0f2133;border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;">
+                    <table width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td width="40">
+                          <div style="width:38px;height:38px;background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.3);border-radius:10px;text-align:center;line-height:38px;font-size:18px;">
+                            📞
+                          </div>
+                        </td>
+                        <td style="padding-left:14px;">
+                          <div style="color:#64748b;font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:3px;">Phone Number</div>
+                          <div style="font-size:16px;font-weight:700;">
+                            <a href="tel:{{ $clientPhone }}" style="color:#34d399;text-decoration:none;">{{ $clientPhone }}</a>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+
               <!-- Service -->
               <table width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-bottom:16px;">
                 <tr>

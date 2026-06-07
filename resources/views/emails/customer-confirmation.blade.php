@@ -83,6 +83,30 @@
                   </table>
                 </td>
               </tr>
+              <!-- Phone -->
+              <tr>
+                <td style="padding-bottom:12px;">
+                  <table width="100%" cellpadding="0" cellspacing="0">
+                    <tr>
+                      <td style="background:#0f2133;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:14px 18px;">
+                        <table cellpadding="0" cellspacing="0">
+                          <tr>
+                            <td width="34">
+                              <div style="width:32px;height:32px;background:rgba(16,185,129,0.2);border-radius:8px;text-align:center;line-height:32px;font-size:15px;">📞</div>
+                            </td>
+                            <td style="padding-left:12px;">
+                              <div style="color:#64748b;font-size:10px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">Phone Number</div>
+                              <div style="font-size:14px;font-weight:700;margin-top:2px;">
+                                <a href="tel:{{ $clientPhone }}" style="color:#34d399;text-decoration:none;">{{ $clientPhone }}</a>
+                              </div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
               <!-- Message preview -->
               @if($clientMessage)
               <tr>

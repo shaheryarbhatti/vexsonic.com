@@ -703,6 +703,10 @@
               </div>
             </div>
             <div class="form-group">
+              <label>Phone Number</label>
+              <input type="tel" name="phone" placeholder="+1 (555) 000-0000" required />
+            </div>
+            <div class="form-group">
               <label>Service Needed</label>
               <select name="service">
                 <option value="">Select a service...</option>

@@ -15,6 +15,7 @@ class ContactFormMail extends Mailable
     public function __construct(
         public string $clientName,
         public string $clientEmail,
+        public string $clientPhone,
         public string $clientService,
         public string $clientMessage,
         public string $submittedAt,

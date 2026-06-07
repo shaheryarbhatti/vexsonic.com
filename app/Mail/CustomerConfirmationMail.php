@@ -14,6 +14,7 @@ class CustomerConfirmationMail extends Mailable
 
     public function __construct(
         public string $clientName,
+        public string $clientPhone,
         public string $clientService,
         public string $clientMessage,
         public string $submittedAt,

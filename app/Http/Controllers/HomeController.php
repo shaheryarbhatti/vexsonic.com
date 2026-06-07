@@ -43,7 +43,8 @@ class HomeController extends Controller
         // ── Validation ──
         $validated = $request->validate([
             'name'    => ['required', 'string', 'min:2', 'max:255'],
-            'email'   => ['required', 'email:rfc,dns', 'max:255'],
+            'email'   => ['required', 'email:rfc', 'max:255'],
+            'phone'   => ['required', 'string', 'max:30'],
             'service' => ['nullable', 'string', 'max:100'],
             'message' => ['nullable', 'string', 'max:2000'],
         ]);
@@ -56,6 +57,7 @@ class HomeController extends Controller
                 new ContactFormMail(
                     clientName:    $validated['name'],
                     clientEmail:   $validated['email'],
+                    clientPhone:   $validated['phone'],
                     clientService: $validated['service'] ?? 'Not specified',
                     clientMessage: $validated['message'] ?? '',
                     submittedAt:   $submittedAt,
@@ -66,6 +68,7 @@ class HomeController extends Controller
             Mail::to($validated['email'])->send(
                 new CustomerConfirmationMail(
                     clientName:    $validated['name'],
+                    clientPhone:   $validated['phone'],
                     clientService: $validated['service'] ?? 'Not specified',
                     clientMessage: $validated['message'] ?? '',
                     submittedAt:   $submittedAt,
